@@ -261,10 +261,23 @@ if (tg) {
 }
 
 function show(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+
+  const page = document.getElementById(id);
+
+  if (page) {
+    page.classList.add('active');
+  }
 }
 
+  const page = document.getElementById(id);
+
+  if (page) {
+    page.classList.add('active');
+  }
+}
 async function loadMenu() {
   const box = document.getElementById('menu-data');
 
