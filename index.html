@@ -147,7 +147,6 @@ a{
     ...
 }
 
-...
 
 .pay-button:active {
     transform: scale(.98);
@@ -277,15 +276,18 @@ if (tg) {
 }
 
 function show(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-  });
+    const screens = document.querySelectorAll('.screen');
 
-  const page = document.getElementById(id);
+    screens.forEach(function(screen) {
+        screen.classList.remove('active');
+    });
 
-  if (page) {
-    page.classList.add('active');
-  }
+    const target = document.getElementById(id);
+
+    if (target) {
+        target.classList.add('active');
+        window.scrollTo(0, 0);
+    }
 }
 
   const page = document.getElementById(id);
