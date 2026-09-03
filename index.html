@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Наш клас | 1-Б</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--blue:#1d5ea8;--yellow:#f4c542;--ink:#18324a;--muted:#718096;--bg:#f8f7f3;--card:#fff;--line:#e9e7e1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+.app{max-width:520px;margin:auto;padding:18px 16px 28px}.hero{text-align:center;padding:10px 8px 18px}
+.school{font-size:44px;line-height:1;margin-bottom:8px}.hero h1{font-size:30px;margin:0;font-weight:750}.hero p{margin:7px 0 0;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.tile{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:18px 14px;text-align:left;min-height:108px;box-shadow:0 2px 12px #17324a08}.icon{font-size:25px;margin-bottom:10px}.tile b{display:block;font-size:16px}.tile span{font-size:12px;color:var(--muted)}
+.notice{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px}.notice strong{font-size:14px}.notice p{margin:6px 0 0;font-size:13px;color:#536273}
+.screen{display:none}.screen.active{display:block}.back{border:0;background:none;font-size:15px;color:var(--blue);padding:5px 0 15px}.screen h2{margin:0 0 14px}.item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:10px}.row{display:flex;justify-content:space-between;gap:12px}.price{font-weight:750;color:var(--blue)}.tag{font-size:11px;border-radius:99px;padding:5px 8px;background:#edf6ed;color:#287a38;white-space:nowrap}.tag.red{background:#fff0ef;color:#c44b43}.small{font-size:12px;color:var(--muted);margin-top:5px}.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--blue);color:#fff;padding:11px;margin-top:12px;font-weight:650}.day{font-weight:700;margin:14px 0 8px}.lesson{padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}.num{width:26px;height:26px;border-radius:50%;background:#edf4fb;color:var(--blue);display:grid;place-items:center;font-size:12px}.menu-section{margin-bottom:13px}.menu-section h3{font-size:14px;margin:0 0 6px}.menu-section p{margin:0;font-size:13px;line-height:1.55}
+.footer{text-align:center;color:#9aa4af;font-size:11px;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="app">
+  <section id="home" class="screen active">
+    <div class="hero"><div class="school">🏫</div><h1>Наш клас | 1-Б</h1><p>Разом — ми команда! 💙💛</p></div>
+    <div class="grid">
+      <button class="tile" onclick="show('payments')"><div class="icon">💳</div><b>Оплати</b><span>Збори та статуси</span></button>
+      <button class="tile" onclick="show('schedule')"><div class="icon">📚</div><b>Розклад</b><span>На сьогодні та тиждень</span></button>
+      <button class="tile" onclick="show('menu')"><div class="icon">🍽️</div><b>Меню</b><span>Їдальня</span></button>
+      <button class="tile" onclick="show('clubs')"><div class="icon">🎨</div><b>Гуртки</b><span>Запис та розклад</span></button>
+      <button class="tile" onclick="show('news')"><div class="icon">📢</div><b>Оголошення</b><span>Важлива інформація</span></button>
+      <button class="tile" onclick="show('docs')"><div class="icon">📄</div><b>Документи</b><span>Файли класу</span></button>
+    </div>
+    <div class="notice"><strong>🔔 Останнє оголошення</strong><p>Завтра 3-м уроком замість математики буде інформатика.</p></div>
+    <div class="footer">Демо-версія • 1-Б клас</div>
+  </section>
+
+  <section id="payments" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>💳 Оплати</h2>
+    <div class="item"><div class="row"><b>Екскурсія</b><span class="tag red">Не оплачено</span></div><div class="small">Збір до 10 вересня</div><div class="price" style="margin-top:8px">250 грн</div><button class="btn">Я оплатив/ла</button></div>
+    <div class="item"><div class="row"><b>Фонд класу</b><span class="tag">Оплачено ✓</span></div><div class="small">До 30 вересня</div><div class="price" style="margin-top:8px">300 грн</div></div>
+  </section>
+
+  <section id="schedule" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>📚 Розклад</h2>
+    <div class="day">Сьогодні</div>
+    <div class="item"><div class="lesson"><span class="num">1</span>Українська мова</div><div class="lesson"><span class="num">2</span>Математика</div><div class="lesson"><span class="num">3</span>Англійська мова</div><div class="lesson"><span class="num">4</span>Я досліджую світ</div><div class="lesson"><span class="num">5</span>Фізкультура</div></div>
+    <div class="notice">⚠️ <b>Зміна розкладу</b><p>Завтра 3-м уроком — інформатика.</p></div>
+  </section>
+
+  <section id="menu" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>🍽️ Меню їдальні</h2>
+    <div class="item"><div class="day">Сьогодні</div><div class="menu-section"><h3>🥣 Сніданок</h3><p>Каша вівсяна<br>Сирники зі сметаною<br>Фрукти<br>Чай</p></div><div class="menu-section"><h3>🍲 Обід</h3><p>Суп курячий з вермішеллю<br>Гречка<br>Куряча котлета<br>Салат з капусти<br>Компот</p></div></div>
+  </section>
+
+  <section id="clubs" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>🎨 Гуртки</h2>
+    <div class="item"><b>Танці</b><div class="small">Пн / Ср • 15:30</div><div class="small">500 грн/міс.</div><button class="btn">Записати дитину</button></div>
+    <div class="item"><b>Малювання</b><div class="small">Вт / Чт • 16:00</div><div class="small">400 грн/міс.</div><button class="btn">Записати дитину</button></div>
+    <div class="item"><b>Футбол</b><div class="small">Пн / Пт • 16:30</div><div class="small">600 грн/міс.</div><button class="btn">Записати дитину</button></div>
+  </section>
+
+  <section id="news" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>📢 Оголошення</h2>
+    <div class="item"><b>Батьківські збори</b><div class="small">10 вересня о 18:00 • кабінет №12</div></div>
+    <div class="item"><b>День здоров’я</b><div class="small">20 вересня • спортивний одяг</div></div>
+  </section>
+
+  <section id="docs" class="screen">
+    <button class="back" onclick="show('home')">← Назад</button><h2>📄 Документи</h2>
+    <div class="item">📎 Пам’ятка для батьків</div><div class="item">📎 Правила харчування</div><div class="item">📎 Інформація про гуртки</div>
+  </section>
+</div>
+<script>
+const tg=window.Telegram?.WebApp;if(tg){tg.ready();tg.expand();}
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+</script>
+</body></html>
