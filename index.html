@@ -69,7 +69,55 @@
   </section>
 </div>
 <script>
-const tg=window.Telegram?.WebApp;if(tg){tg.ready();tg.expand();}
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+async function loadMenu() {
+  const box = document.getElementById('menu-data');
+
+  try {
+    const response = await fetch('menu.json?v=' + Date.now());
+    const menu = await response.json();
+
+    const days = {
+      monday: 'Понеділок',
+      tuesday: 'Вівторок',
+      wednesday: 'Середа',
+      thursday: 'Четвер',
+      friday: 'П’ятниця'
+};
+
+    let html = '';
+
+    for (const [key, title] of Object.entries(days)) {
+      const meals = menu[key] || [];
+
+      html += `<div class="day">${title}</div>`;
+
+      if (meals.length === 0) {
+        html += `<div class="item">Меню ще не заповнено</div>`;
+      } else {
+        meals.forEach(meal => {
+          html += `<div class="item">${meal}</div>`;
+        });
+      }
+    }
+
+    box.innerHTML = html;
+
+  } catch (error) {
+    box.innerHTML = '<div class="item">Не вдалося завантажити меню</div>';
+  }
+}
+
+loadMenu();
 </script>
 </body></html>
